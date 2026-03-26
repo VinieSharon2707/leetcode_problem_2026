@@ -1,5 +1,5 @@
 import java.util.*;
-class day6 {
+class day7 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String s=sc.nextLine();
@@ -11,6 +11,38 @@ class day6 {
         for(int i = 0; i < 256; i++){
             if(freq[i] != 0)
             System.out.println((char)i + ":" + freq[i]);
+        }
+    }
+}
+// without using frequency array
+import java.util.*;
+class day7 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        for(int i = 0; i< s.length();i++){
+            char ch = s.charAt(i);
+            boolean flag = false;
+            for(int k = 0; k < i-1; k++){
+                if (s.charAt(k) == ch){
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag == true){
+                continue;
+            }
+        
+        int c = 1;
+        for(int j = i+1; j < s.length(); j++){
+            if(s.charAt(j) == ch){
+                c++;
+            }
+        }
+        if(s.charAt(i) == ' '){
+            System.out.println(" :" + c);
+        }
+        else System.out.println(ch + ":"+ c);
         }
     }
 }
