@@ -1,7 +1,7 @@
 // without builtin function
 
 import java.util.*;
-class day6 {
+class day7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
@@ -22,7 +22,7 @@ class day6 {
 }
 // in-built function
 import java.util.*;
-class day6 {
+class day7 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String s=sc.nextLine();
