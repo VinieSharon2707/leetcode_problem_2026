@@ -1,0 +1,40 @@
+String Functions
+1) charAt()
+Used to get a character at a specific position
+Syntax: string.charAt(index)
+Example: "Hello".charAt(1) → e
+
+2) length()
+Used to find total number of characters
+Syntax: string.length()
+Example: "Hello".length() → 5
+
+3) toLowerCase()
+Converts all letters to lowercase
+Syntax: string.toLowerCase()
+Example: "HELLO" → hello
+
+4) toUpperCase()
+Converts all letters to uppercase
+Syntax: string.toUpperCase()
+Example: "hello" → HELLO
+
+5) split()
+Splits string into parts using delimiter
+Syntax: string.split("delimiter")
+Example: "a,b,c".split(",") → a b c
+
+6) replace()
+Replaces old characters/words with new ones
+Syntax: string.replace(old, new)
+Example: "Hello".replace("H","Y") → Yello
+
+7) substring()
+Extracts part of a string
+Syntax: string.substring(start, end)
+Example: "Hello".substring(1,4) → ell
+
+8) contains()
+Checks if string contains a specific word
+Syntax: string.contains("text")
+Example: "Hello".contains("He") → true
