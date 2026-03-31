@@ -1,0 +1,150 @@
+PROGRAM:
+import java.util.*;
+class Ride1{
+    String name;
+    String pickup;
+    String drop;
+    List<String> stop;
+    double fare;
+    String status;
+
+    Ride1(String name,String pickup,String drop){
+        this.name=name;
+        this.pickup=pickup;
+        this.drop=drop;
+        this.stop=new ArrayList<>();          //--->empty
+        this.status="BOOKED";
+        this.fare=calculation();
+    }
+
+    Ride1(String name,String pickup,String drop,List<String> stop){
+        this.name=name;
+        this.pickup=pickup;
+        this.drop=drop;
+        this.stop=stop;
+        this.status="BOOKED";
+        this.fare=calculation();
+    }
+    double calculation(){
+
+        
+        return 50+(stop.size()*50);
+    }
+
+    void showdetails(){
+        System.out.println("Customer : "+this.name+"\nRoute : ");
+        System.out.print(this.pickup);
+        for(String s:stop){
+            System.out.print("--->"+s);
+        }
+        System.out.print("--->"+this.drop+"\n");
+        System.out.println("Fare : "+this.fare);
+        System.out.println("Status : "+this.status);
+        System.out.println("----------------------");
+    }
+
+    void cancelride(){
+        if(this.status.equals("Cancelled")){
+            System.out.println("Already cancelled");
+        }
+        else if(this.status.equals("Completed")){
+            System.out.println("Completed Ride Cannot be Cancelled");
+        }
+        else{
+            this.status="Cancelled";
+            this.fare=0;
+            System.out.println("Ride successfully cancelled");
+        }
+    }
+
+    void completeride(){
+        if(this.status.equals("Cancelled")){
+            System.out.println("Cancelled Ride cannot be Completed");
+        }
+        else if(this.status.equals("Completed")){
+            System.out.println("Already Completed");
+        }
+        else{
+            this.status="Completed";
+            this.fare=0;
+            System.out.println("Ride successfully Completed");
+        }
+    }
+}
+
+public class Ride{
+
+    public static void main(String[] args){
+        Ride1 R1=new Ride1("Ram","St.Joseph's","Guindy");
+        R1.showdetails();
+
+        List<String> stop=new ArrayList<>();
+        stop.add("Camp Road");
+        stop.add("Selaiyur");
+        stop.add("Kamarajapuram");
+        
+        Ride1 R2=new Ride1("Laskshman","Tambaram","Sembakkam",stop);
+        R2.showdetails();
+
+        R1.cancelride();
+        R1.showdetails();
+
+        R1.completeride();
+        R1.showdetails();
+
+        R2.completeride();
+        R2.showdetails();
+
+        R2.cancelride();
+        R2.showdetails();
+
+    }
+}
+
+OUTPUT:
+Customer Ram
+Route : 
+St.Joseph's--->Guindy
+50.0
+Booked
+----------------------
+Customer : Ram
+Route : 
+St.Joseph's--->Guindy
+Fare : 50.0
+Status : BOOKED
+----------------------
+Customer : Laskshman
+Route : 
+Tambaram--->Camp Road--->Selaiyur--->Kamarajapuram--->Sembakkam
+Fare : 200.0
+Status : BOOKED
+----------------------
+Ride successfully cancelled
+Customer : Ram
+Route : 
+St.Joseph's--->Guindy
+Fare : 0.0
+Status : Cancelled
+----------------------
+Cancelled Ride cannot be Completed
+Customer : Ram
+Route : 
+St.Joseph's--->Guindy
+Fare : 0.0
+Status : Cancelled
+----------------------
+Ride successfully Completed
+Customer : Laskshman
+Route : 
+Tambaram--->Camp Road--->Selaiyur--->Kamarajapuram--->Sembakkam
+Fare : 0.0
+Status : Completed
+----------------------
+Completed Ride Cannot be Cancelled
+Customer : Laskshman
+Route : 
+Tambaram--->Camp Road--->Selaiyur--->Kamarajapuram--->Sembakkam
+Fare : 0.0
+Status : Completed
+----------------------
