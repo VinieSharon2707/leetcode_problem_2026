@@ -1,0 +1,74 @@
+import java.util.*;
+class InValidPinException extends Exception{
+    InValidPinException(String str){
+        super(str);
+    }
+} 
+class InSufficientBalanceException extends Exception{
+    InSufficientBalanceException(String str){
+        super(str);
+    }
+}
+class Atm{
+    private int pin=1234;
+    private int balance=5000;
+    public void pinvalidate(int p) throws InValidPinException{
+        if(p!=pin){
+            throw new InValidPinException("InValidPinException");
+        }
+        System.out.println("valid pin");
+    }
+    public void checkbalance(){
+      System.out.println("available balance "+balance);  
+    }
+    public void deposite(int a){
+        balance=balance+a;
+        System.out.println("Deposite successful "+balance);
+    }
+    public void withdraw(int a)throws InSufficientBalanceException{
+        if(a>balance){
+            throw new InSufficientBalanceException("InSufficientBalanceException");
+        }
+        balance=balance-a;
+        System.out.println("Withdraw successfull");
+    }
+}
+public class Main{
+    public static void main(String[] args){
+       Atm a1=new Atm();
+       Scanner sc=new Scanner(System.in);
+       try{
+           System.out.println("enter ur pin:");
+           int p1=sc.nextInt();
+           a1.pinvalidate(p1);
+           int choice=sc.nextInt();
+           switch(choice){
+               case 1:
+                   a1.checkbalance();
+                   break;
+               case 2:
+                   System.out.println("enter a amount: ");
+                   int am=sc.nextInt();
+                   a1.deposite(am);
+                   break;
+               case 3:
+                   System.out.println("enter amount to withdraw: ");
+                   int amo=sc.nextInt();
+                   a1.withdraw(amo);
+                   break;
+               default:
+                   System.out.println("Invalid choice ");
+                   break;
+           }
+       }
+       catch(InValidPinException e){
+           System.out.println(e.getMessage());
+       }
+       catch(InSufficientBalanceException e){
+           System.out.println(e.getMessage());
+       }
+       finally{
+           System.out.print("Thank You");
+       }
+    }
+}
