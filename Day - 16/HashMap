@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Map<Integer,String> map = new HashMap<>();
+		map.put(1,"hi");
+		map.put(2,"hello");
+		map.put(3,"bye");
+		System.out.println(map);
+		map.put(3,"great");
+		System.out.println(map);
+		map.remove(1);
+		System.out.println(map);
+		System.out.println(map.get(3));
+		System.out.println(map.containsKey(1));
+	    System.out.println(map.containsValue("hello"));
+	    for(Map.Entry<Integer, String> e:map.entrySet()){
+	        System.out.println(e.getKey() + " " + e.getValue());
+	    }
+	}
+	
+}
