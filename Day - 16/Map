@@ -1,0 +1,18 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Map<Integer,String> hm = new HashMap<>();
+		Map<Integer,String> lhm = new LinkedHashMap<>();
+		Map<Integer,String> tm = new TreeMap<>();
+		int[] arr = {50,20,30};
+		for( int a: arr){
+		    hm.put(a,"A");
+		    lhm.put(a,"A");
+		    tm.put(a,"A");
+		}
+		    System.out.println(hm);
+		    System.out.println(lhm); 
+		    System.out.println(tm);
+	}
+}
