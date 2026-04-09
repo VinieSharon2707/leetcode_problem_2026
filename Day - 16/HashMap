@@ -20,3 +20,12 @@ public class Main
 	}
 	
 }
+OUTPUT:
+{1=hi, 2=hello, 3=bye}
+{1=hi, 2=hello, 3=great}
+{2=hello, 3=great}
+great
+false
+true
+2 hello
+3 great
