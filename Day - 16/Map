@@ -16,3 +16,8 @@ public class Main
 		    System.out.println(tm);
 	}
 }
+
+OUTPUT:
+{50=A, 20=A, 30=A}
+{50=A, 20=A, 30=A}
+{20=A, 30=A, 50=A}
