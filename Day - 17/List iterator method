@@ -21,3 +21,10 @@ public class Main
 	}
 }
 Output
+[10, 11, 12]
+10
+11
+12
+12
+11
+10
