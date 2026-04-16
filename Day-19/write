@@ -1,0 +1,13 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+public class File_Writer{
+    public static void main(String[] args) throws IOException{
+            // FileWriter fw=new FileWriter(new File("Sample2.txt")); ---->inside Filewriter class new file will be created so no need createNewFile method
+            // Already created
+            FileWriter fw=new FileWriter("Sample2.txt");
+            fw.write("Welcome");
+            fw.close();
+            
+    }
+}
